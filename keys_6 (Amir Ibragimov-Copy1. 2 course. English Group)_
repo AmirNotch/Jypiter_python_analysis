@@ -1,0 +1,254 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[2, 4, 6, 7] ['Nurbol', 'Almaty', 'Nur-Sultan']\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача 1, 1 способ\n",
+    "cityKazakh = ['Nurbol', 2, 'Almaty', 4, 'Nur-Sultan', 6, 7,]\n",
+    "number = 1\n",
+    "str = []\n",
+    "int = []\n",
+    "for i in cityKazakh:\n",
+    "    if type(i) == type(number):\n",
+    "        str.append(i)\n",
+    "    else:\n",
+    "         int.append(i)\n",
+    "print(str, int)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[2, 4, 6, 7] ['Nurbol', 'Almaty', 'Nur-Sultan']\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача 1, 2 способ\n",
+    "import numbers\n",
+    "cityKazakh1 = ['Nurbol', 2, 'Almaty', 4, 'Nur-Sultan', 6, 7,]\n",
+    "number1 = 1\n",
+    "str1 = []\n",
+    "int1 = []\n",
+    "for i in cityKazakh1:\n",
+    "    if isinstance(i, numbers.Integral):\n",
+    "        str1.append(i)\n",
+    "    else:\n",
+    "        int1.append(i)\n",
+    "print(str1, int1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[2, 4, 6, 7] ['Nurbol', 'Almaty', 'Nur-Sultan']\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача 1, 3 способ\n",
+    "cityKazakh2 = ['Nurbol', 2, 'Almaty', 4, 'Nur-Sultan', 6, 7, ]\n",
+    "number2 = 1\n",
+    "str2 = []\n",
+    "int2 = []\n",
+    "for i in range(0, len(cityKazakh2)):\n",
+    "    if type(cityKazakh2[i]) == type(number2):\n",
+    "        str2.append(cityKazakh2[i])\n",
+    "    else:\n",
+    "        int2.append(cityKazakh2[i])\n",
+    "print(str2, int2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "192 учащихся!\n",
+      "4а 30\n",
+      "{'4а': 30, '5а': 30} либо 2 -х класса\n",
+      "133 количество учащихся до 4 класса\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача 2, 1 способ\n",
+    "school = {'1a':20,'1б':22,'2а':18,'2б':28,'3а':15,'4а':30,'5а':30,'6б':13,'6а':16}\n",
+    "totalPuple = 0\n",
+    "for value in school.values():\n",
+    "    totalPuple += value\n",
+    "print(totalPuple, 'учащихся!')\n",
+    "\n",
+    "a = 0\n",
+    "a1 = 'A'\n",
+    "for key, value in school.items():\n",
+    "    if a < value:\n",
+    "       a = value\n",
+    "       a1 = key\n",
+    "print(a1,a)\n",
+    "\n",
+    "# второй спосб вывода макс   max_value = max(school.values())\n",
+    "# print(max_value)\n",
+    "\n",
+    "final_dict = {k: v for k, v in school.items() if v == a}\n",
+    "print(final_dict, 'либо', len(final_dict), '-х класса')\n",
+    "totalPupple = 0\n",
+    "\n",
+    "totalPupple = 0\n",
+    "highClass = '5'\n",
+    "keys = ''\n",
+    "for key, value in school.items():\n",
+    "    keys = key\n",
+    "    var = keys.split()[-1][0]\n",
+    "    if var == highClass:\n",
+    "        break\n",
+    "    else:\n",
+    "        totalPupple += value\n",
+    "print(totalPupple, 'количество учащихся до 4 класса')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "192 учащихся!\n",
+      "4а 30\n",
+      "{'4а': 30, '5а': 30} либо 2 -х класса\n",
+      "133 количество учащихся до 4 класса\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача 2, 2 способ\n",
+    "school = {'1a':20,'1б':22,'2а':18,'2б':28,'3а':15,'4а':30,'5а':30,'6б':13,'6а':16}\n",
+    "dictTot = sum(school.values())\n",
+    "print(dictTot, 'учащихся!')\n",
+    "\n",
+    "a = 0\n",
+    "a1 = 'A'\n",
+    "for key, value in school.items():\n",
+    "    if a < value:\n",
+    "       a = value\n",
+    "       a1 = key\n",
+    "\n",
+    "print(a1,a)\n",
+    "\n",
+    "final_dict = {k: v for k, v in school.items() if v == a}\n",
+    "print(final_dict, 'либо', len(final_dict), '-х класса')\n",
+    "\n",
+    "totalPupple = 0\n",
+    "highClass = '5а'\n",
+    "for key, value in school.items():\n",
+    "    if key == highClass:\n",
+    "        break\n",
+    "    else:\n",
+    "        totalPupple += value\n",
+    "print(totalPupple, 'количество учащихся до 4 класса')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "192 учащихся!\n",
+      "5а 30\n",
+      "{'4а': 30, '5а': 30} в 2 -х классов\n",
+      "133 количество учащихся до 4 класса\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача 2, 3 способ\n",
+    "school = {'1a':20,'1б':22,'2а':18,'2б':28,'3а':15,'4а':30,'5а':30,'6б':13,'6а':16}\n",
+    "dictTot = sum(school.values())\n",
+    "print(dictTot, 'учащихся!')\n",
+    "\n",
+    "abc = max(school.values())\n",
+    "a = 0\n",
+    "a1 = 'A'\n",
+    "for key, value in school.items():\n",
+    "    if abc == value:\n",
+    "        a = value\n",
+    "        a1 = key\n",
+    "print(a1, a)\n",
+    "\n",
+    "final_dict = {k: v for k, v in school.items() if v >= a}\n",
+    "print(final_dict, 'в', len(final_dict), '-х классов')\n",
+    "\n",
+    "totalPupple = 0\n",
+    "highClass = '5а'\n",
+    "for key, value in school.items():\n",
+    "    if key == highClass:\n",
+    "        break\n",
+    "    else:\n",
+    "        totalPupple += value\n",
+    "print(totalPupple, 'количество учащихся до 4 класса')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
